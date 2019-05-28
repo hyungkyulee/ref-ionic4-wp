@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registred System</ion-title>
+      <ion-button slot="end" *ngIf="(authService.isAuthenticated | async)">
+          <ion-button class="round" routerLink="/tabs/registration/edit-product">
+              <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+      </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-list *ngIf="registrations.length > 0">
+          <ion-item detail *ngFor="let item of registrations" routerLink="/tabs/registration/{{ item.id }}">
+            <ion-label text-wrap>
+              <ion-item lines="none">
+                <h2 [innerHTML]="item.title.rendered"></h2>
+              </ion-item>
+              <ion-item lines="none">
+                <p>~{{ item.cmrname }}</p>
+              </ion-item>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+        <ion-list *ngIf="registrations.length === 0">
+          <ion-item detail *ngFor="let item of[].constructor(10)">
+              <ion-label text-wrap>
+                  <ion-text>
+                      <ion-skeleton-text animate width="100%"></ion-skeleton-text>
+                      <ion-skeleton-text animate width="80%"></ion-skeleton-text>
+                  </ion-text>
+                  <ion-text>
+                      <ion-skeleton-text animate width="40%"></ion-skeleton-text>
+                  </ion-text>
+              </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

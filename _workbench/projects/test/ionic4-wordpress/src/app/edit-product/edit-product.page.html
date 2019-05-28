@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create or Edit Product</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <form #f="ngForm" (ngSubmit)="onEditProduct(f)">
+          <ion-item>
+            <ion-label position="floating">Title</ion-label>
+            <ion-input name="title" type="text" [(ngModel)]="model.title"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Customer Name</ion-label>
+            <ion-input name="cmrname" type="text" [(ngModel)]="model.cmrname"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Customer Number</ion-label>
+            <ion-input name="cmrnumber" type="text" [(ngModel)]="model.cmrnumber"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Customer Email</ion-label>
+            <ion-input name="cmrmail" type="email" [(ngModel)]="model.cmrmail"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Customer Address</ion-label>
+            <ion-input name="cmraddress" type="text" [(ngModel)]="model.cmraddress"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Customer Postcode</ion-label>
+            <ion-input name="cmrpostcode" type="text" [(ngModel)]="model.cmrpostcode"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Serial Number</ion-label>
+            <ion-input name="snumber" type="text" [(ngModel)]="model.snumber"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Installation Date</ion-label>
+            <ion-input name="installation" type="date" [(ngModel)]="model.installation"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Installer (Engineer)</ion-label>
+            <ion-input name="installer" type="text" [(ngModel)]="model.installer"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Upload File (e.g. Gas Registre Form)</ion-label>
+            <ion-input name="gasform" type="text" [(ngModel)]="model.gasform"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Additional Notes</ion-label>
+            <ion-input name="notes" type="text" [(ngModel)]="model.notes"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Select Status</ion-label>
+            <ion-select name="status" [(ngModel)]="model.status" placeholder="Reg. Status">
+              <ion-select-option value="publish">Publish</ion-select-option>
+              <ion-select-option value="draft">Approval needed</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-button expand="block" type="submit" color="primary">Submit</ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

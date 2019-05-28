@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registration Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+          <ion-item lines="none">
+            <ion-label text-wrap>
+              <ion-item>
+                <strong>Serial Number</strong> : {{product?.snumber}}
+              </ion-item>
+              <ion-item lines="none">
+                <strong> Installer : </strong> : {{product?.installer}}
+              </ion-item>
+              <ion-item>
+                <strong> Installed at : </strong> : {{product?.installation}}
+              </ion-item>
+              <ion-item lines="none">
+                <strong> Customer : </strong> : {{product?.cmrname}}
+              </ion-item>
+              <ion-item lines="none">
+                <strong> Telephone : </strong> : {{product?.cmrnumber}}
+              </ion-item>
+              <ion-item lines="none">
+                <strong> Email : </strong> : {{product?.cmrmail}}
+              </ion-item>
+              <ion-item lines="none">
+                <strong> Address : </strong> : {{product?.cmraddress}}
+              </ion-item>
+              <ion-item lines="none">
+                <strong> Postcode : </strong> : {{product?.cmrpostcode}}
+              </ion-item>
+              <ion-item lines="none">
+                <strong> Note : </strong> : {{product?.notes}}
+              </ion-item>
+            </ion-label>
+          </ion-item>
+      </ion-col>
+      <ion-col size="12" *ngIf="(authService.isAuthenticated | async)">
+        <ion-button color="primary" routerLink="/tabs/registration/{{product?.id}}/edit">
+          <ion-item slot="start" name="create"></ion-item>
+          Edit
+        </ion-button>
+        <ion-button color="danger" (click)="onDelete()">
+          <ion-item slot="start" name="trash"></ion-item>
+          Delete
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
